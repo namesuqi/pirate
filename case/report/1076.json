@@ -1,0 +1,5 @@
+[
+{"request":{"uri":{"startsWith": "/distribute/peers"}},
+"response":{"status":400}}
+
+]

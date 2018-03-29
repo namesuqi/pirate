@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+set version [lindex $argv 0]
+# set packet_md5 [lindex $argv 1]
+set timeout 5
+if { $argc == 2 } {
+    set packet_md5 [lindex $argv 1]
+    spawn mysql -h 172.30.254.151 -u upgrade -p -e "delete from upgradedb.packet_info where version='${version}' and md5='${packet_md5}';" mysql
+} else {
+    spawn mysql -h 172.30.254.151 -u upgrade -p -e "delete from upgradedb.packet_info where version='${version}';" mysql
+}
+expect "*password*"
+send "Yunshang2014\r"
+set result [ wait result]
+puts $result
+# log_file t.txt
+interact

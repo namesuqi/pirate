@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+set timeout 5
+spawn mysql -h 172.30.254.151 -u upgrade -p -e "select * from upgradedb.packet_info;" mysql
+expect "*password*"
+send "Yunshang2014\r"
+set result [ wait result]
+puts $result
+log_file t.txt
+interact
+

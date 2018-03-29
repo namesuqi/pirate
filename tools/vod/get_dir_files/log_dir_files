@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+set timeout 5
+spawn mysql -h 172.30.254.151 -u ysboss -p -e "select ppc_tenant_files.id AS id, hex(ppc_tenant_files.file_id) AS file_id,\
+ ppc_tenant_files.fsize AS file_size, ppc_tenant_files.psize AS piece_size, ppc_tenant_files.ppc AS ppc,\
+  ppc_tenant_source.source_type AS source_type, ppc_tenant_files.source AS file_url from boss.ppc_tenant_files,\
+   boss.ppc_tenant_source where ppc_tenant_source.id=ppc_tenant_files.sid;" mysql
+expect "*password*"
+send "Yunshang2014\r"
+set result [ wait result]
+puts $result
+log_file t.txt
+interact
+

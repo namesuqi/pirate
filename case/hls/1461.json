@@ -1,0 +1,32 @@
+[
+{
+    "description": "mock start_channel & start_hls response",
+    "request":
+    {
+      "uri": {
+        "startsWith": "/start"
+      }
+    },
+    "response":
+    {
+      "status": 400,
+      "latency": {
+        "duration": 15,
+        "unit": "second"
+      }
+    }
+  },
+  {
+    "description": "mock get_hls_data response",
+    "request":
+    {
+      "uri": {
+        "startsWith": "/video/hls"
+      }
+    },
+    "response":
+    {
+      "status": 404
+    }
+  }
+  ]

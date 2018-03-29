@@ -1,0 +1,4 @@
+main.py 负责确定模拟sdk发送请求的场景（例如：300个sdk 请求文件a，100个文件请求文件b）
+faker.py 负责模拟sdk向vod push请求数据
+config.py 负责加载配置文件 conf.ini
+log.py 定义了log的格式
